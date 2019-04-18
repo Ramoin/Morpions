@@ -1,20 +1,19 @@
-class Game
-  #TO DO : la classe a plusieurs attr_accessor: le current_player (égal à un objet Player), le status (en cours, nul ou un objet Player s'il gagne), le Board et un array contenant les 2 joueurs.
+require 'pry'
+require 'bundler'
+Bundler.require
 
-  def initialize
-    #TO DO : créé 2 joueurs, créé un board, met le status à "on going", défini un current_player
-  end
+require_relative 'player'
+require_relative 'board'
+require_relative 'board_case'
 
-  def turn
-    #TO DO : méthode faisant appelle aux méthodes des autres classes (notamment à l'instance de Board). Elle affiche le plateau, demande au joueur ce qu'il joue, vérifie si un joueur a gagné, passe au joueur suivant si la partie n'est pas finie.
-  end
+puts "Premier joueur, c'est quoi ton blaze ?"
+print ">"
+name_p1 = gets.chomp
 
-  def new_round
-    # TO DO : relance une partie en initialisant un nouveau board mais en gardant les mêmes joueurs.
-  end
+puts "Deuxième joueur, c'est quoi ton blaze ?"
+print ">"
+name_p2 = gets.chomp
 
-  def game_end
-    # TO DO : permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
-  end    
 
-end
+p1 = Player.new("#{name_p1}", "X")
+p2 = Player.new("#{name_p2}", "O")
